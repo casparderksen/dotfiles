@@ -2,7 +2,6 @@
 
 brew "ansible"                          # Automate deployment, configuration, and upgrading
 brew "bat"                              # cat with syntax highlighting
-brew "container"                        # Apple containers
 brew "dash"                             # API documentation browser and code snippet manager
 brew "delta"                            # Syntax-highlighting pager for git and diff output
 brew "eza"                              # modern ls replacement
