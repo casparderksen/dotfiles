@@ -1,0 +1,42 @@
+# Brewfile
+
+brew "ansible"                          # Automate deployment, configuration, and upgrading
+brew "bat"                              # cat with syntax highlighting
+brew "container"                        # Apple containers
+brew "dash"                             # API documentation browser and code snippet manager
+brew "delta"                            # Syntax-highlighting pager for git and diff output
+brew "eza"                              # modern ls replacement
+brew "fd"                               # find replacement
+brew "fzf"                              # Command-line fuzzy finder
+brew "gh"                               # GitHub command-line tool
+brew "gnupg"                            # GNU Privacy Guard (OpenPGP)
+brew "httpie"                           # curl replacement for humans
+brew "htop"                             # Improved top (interactive process viewer)
+brew "jq"                               # JSON processing
+brew "mas"                              # Mac App Store CLI
+brew "mise"                             # Polyglot runtime manager
+brew "ripgrep"                          # Search tool like grep and The Silver Searcher
+brew "starship"                         # Cross-shell prompt for astronauts
+brew "stow"                             # Organize software neatly under a single directory tree
+brew "tlrc"                             # Official tldr client written in Rust
+brew "wget"                             # Internet file retriever
+brew "yq"                               # YAML processing
+brew "zoxide"                           # smarter cd
+brew "zsh-autosuggestions"              # Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-syntax-highlighting"          # Fish shell like syntax highlighting for zsh
+
+cask "dbvisualizer"                     # Database management and analysis tool
+cask "eclipse-installer"                # Install and update your Eclipse Development Environment
+cask "gimp"                             # Free and open-source image editor
+cask "intellij-idea"                    # Java IDE by JetBrains
+cask "mactex"                           # Full TeX Live distribution with GUI applications
+cask "orbstack"                         # Replacement for Docker Desktop and for running Linux containers
+cask "proxyman"                         # HTTP debugging proxy
+cask "viscosity"                        # OpenVPN client with AppleScript support
+cask "vlc"                              # Multimedia player
+cask "visual-studio-code"               # VS Code editor
+
+cask "font-jetbrains-mono-nerd-font"    # JetBrainsMono Nerd Font families (JetBrains Mono)
+
+mas "DaisyDisk",    id: 411643860	
+mas "Slack",        id: 803453959

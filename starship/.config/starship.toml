@@ -1,0 +1,9 @@
+# ~/.dotfiles/starship/.config/starship.toml
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# ─── Layout ────────────────────────────────────────────────────────────────────
+
+format = """
+$username$hostname$directory$git_branch$git_status$java$nodejs$python$container$character"""

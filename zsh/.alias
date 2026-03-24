@@ -1,0 +1,13 @@
+# Command line
+alias ls="eza --icons --group-directories-first"
+alias ll="eza -l --icons --git --group-directories-first"
+alias la="eza -la --icons --git --group-directories-first"
+alias cat="bat --style=plain"
+alias ..="cd .."
+alias ...="cd ../.."
+
+# Git shortcuts
+alias gs="git status -sb"
+alias gp="git push"
+alias gl="git pull --rebase"
+alias glog="git log --oneline --decorate --graph --all"

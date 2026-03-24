@@ -1,0 +1,36 @@
+# ~/.dotfiles/git/.config/git/config
+
+[core]
+    pager = delta
+
+[delta]
+    navigate = true
+    side-by-side = true
+    line-numbers = true
+
+[pull]
+    ff = only
+
+[push]
+    autoSetupRemote = true
+
+[alias]
+    undo = reset HEAD~1 --mixed                 # roll back last commit but keep changes staged in working tree
+    wip  = commit -am "wip"                     # commit work in progress, intended to pair with undo
+    nuke = !git reset --hard && git clean -fd   # discard all changes
+
+[merge]
+    conflictstyle = zdiff3
+
+[rebase]
+    autosquash = true
+    autostash  = true
+
+[diff]
+    algorithm = histogram
+
+[init]
+    defaultBranch = main
+
+[gpg]
+    format = ssh
