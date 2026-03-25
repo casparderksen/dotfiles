@@ -39,12 +39,14 @@ info "Checking Homebrew..."
 if ! command -v brew &>/dev/null; then
     info "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-    # Add Homebrew to PATH
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "~/.zprofile"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     info "Homebrew already installed - skipping."
+fi
+
+# Add Homebrew to PATH
+if [ ! -f ~/.zprofile ] || ! grep -q "brew shellenv" ~/.zprofile; then
+    BREW="$(brew --prefix)/bin/brew"
+    echo "eval \"\$($BREW shellenv)\"" >> ~/.zprofile
 fi
 
 # ── Brewfile ──────────────────────────────────────────────────────────────────
@@ -92,6 +94,7 @@ divider
 info "Installing mise tools..."
 
 mise install
+eval "$(mise activate bash)"
 
 JVM_LINK=/Library/Java/JavaVirtualMachines/openjdk.jdk
 if [[ ! -L "$JVM_LINK" ]]; then
@@ -123,18 +126,18 @@ fi
 divider
 info "Checking Git user..."
 
-# Create .gitconfig file for user settings outside version control 
+# Create .gitconfig file for user settings outside version control
 touch ~/.gitconfig
 
 # Git user mail is also used for SSH key
-if ! git config list | grep -q user.email; then
+if ! git config --get user.email > /dev/null; then
     info "Configuring Git user..."
     read -rp "  Enter your full name: " USER_NAME
     read -rp "  Enter your email    : " USER_EMAIL
     git config --global user.name "$USER_NAME"
     git config --global user.email "$USER_EMAIL"
 else
-    USER_EMAIL="$(git config list | grep user.email | cut -d'=' -f2)"
+    USER_EMAIL="$(git config --get user.email)"
     info "Git user already configured - skipping."
 fi
 
@@ -164,7 +167,7 @@ else
 fi
 
 info "Checking Git signing key..."
-if ! git config list | grep -q user.signingkey; then
+if ! git config --get user.signingkey > /dev/null; then
     info "Configuring Git signing key..."
     git config --global user.signingkey "$SSH_KEY"
 else
