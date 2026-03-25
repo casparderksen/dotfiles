@@ -161,7 +161,7 @@ if [[ ! -f "$SSH_KEY" ]]; then
 
     # Copy public key to clipboard
     pbcopy <  "$SSH_KEY.pub"
-    info "Copied SSH public key to clipboard (add this to GitHub):"
+    info "Copied SSH public key to clipboard (add this to GitHub)"
 else
     info "SSH key already exists - skipping."
 fi
