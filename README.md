@@ -9,7 +9,7 @@ $ git clone https://github.com/casparderksen/dotfiles.git ~/.dotfiles
 
 Tweak configuration to your preferences:
 - Edit `Brewfile` for apps and packages to install (use `mas` to lookup apps in App Store)
-- Edit `mise/.config/mise/config.toml` to configure tools and runtimes to install (multiple versions possible)
+- Edit `mise/.config/mise/config.toml` to configure tools and runtimes to install (with local versions per project)
 - Edit `macos.sh` for macOS settings
 
 Run the bootstrap script:
