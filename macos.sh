@@ -14,6 +14,7 @@ set -euo pipefail
 # Reduce transparency
 #defaults write com.apple.universalaccess reduceTransparency -bool true
 echo "Manually set Accessibility > Display > Reduce transparency"
+echo "Manually set Accessibility > Zoom > Use trackpad gesture to zoom"
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
