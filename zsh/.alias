@@ -3,6 +3,7 @@ alias ls="eza --icons --group-directories-first"
 alias ll="eza -l --icons --git --group-directories-first"
 alias la="eza -la --icons --git --group-directories-first"
 alias cat="bat --style=plain"
+alias path='echo "${PATH//:/\n}"'
 alias ..="cd .."
 alias ...="cd ../.."
 
