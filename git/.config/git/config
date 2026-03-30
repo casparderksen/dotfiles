@@ -34,3 +34,7 @@
 
 [gpg]
     format = ssh
+
+[rerere]
+	enabled = true                              # see https://git-scm.com/book/be/v2/Git-Tools-Rerere
+    autoupdate = true                           # auto stage recorded fixes
