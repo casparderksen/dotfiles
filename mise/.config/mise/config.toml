@@ -1,14 +1,15 @@
 # ~/.dotfiles/mise/.config/mise/config.toml
 
 [tools]
-node            = "24"
-java            = "openjdk-25"
-maven           = "3.9.14"
-python          = "3.14"
+node                = "24"
+"npm:@angular/cli"  = "latest"
+java                = "openjdk-25"
+maven               = "3.9.14"
+python              = "3.14"
 
-opentofu        = "latest"
-kubectl         = "latest"
-helm            = "latest"
+opentofu            = "latest"
+kubectl             = "latest"
+helm                = "latest"
 
 [settings]
 trusted_config_paths  = [
@@ -16,7 +17,7 @@ trusted_config_paths  = [
   "~/projects/",
 ]
 
-idiomatic_version_file_enable_tools = [ "node", "python" ]
+idiomatic_version_file_enable_tools = [ "java", "node", "python" ]
 
 [env]
 MAVEN_OPTS="-Xmx512m"
