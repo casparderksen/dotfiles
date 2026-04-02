@@ -130,7 +130,7 @@ info "Checking Git user..."
 touch ~/.gitconfig
 
 # Git user mail is also used for SSH key
-if ! git config --get user.email > /dev/null; then
+if ! git config --get user.email &>/dev/null; then
     info "Configuring Git user..."
     read -rp "  Enter your full name: " USER_NAME
     read -rp "  Enter your email    : " USER_EMAIL
@@ -167,7 +167,7 @@ else
 fi
 
 info "Checking Git signing key..."
-if ! git config --get user.signingkey > /dev/null; then
+if ! git config --get user.signingkey &>/dev/null; then
     info "Configuring Git signing key..."
     git config --global user.signingkey "$SSH_KEY"
 else
