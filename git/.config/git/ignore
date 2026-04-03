@@ -28,3 +28,10 @@ replay_pid*
 
 # Log files
 *.log
+
+# Environment settings
+.envrc
+.env
+.env.local
+.claude/.credentials.json
+*.anthropic-key
