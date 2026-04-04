@@ -1,11 +1,10 @@
-### Java / Quarkus Testing Strategy
+## Java / Quarkus Testing Strategy
 
-### General
+## General
 
-- All public methods must have Javadoc
 - Tests must be written alongside implementation, never deferred
 
-#### Test Types and Location
+### Test Types and Location
 
 ```
 src/test/java/<base-package>/
@@ -15,7 +14,7 @@ src/test/java/<base-package>/
 └── adapter/rest/     # API tests via Quarkus @QuarkusTest + REST-assured
 ```
 
-#### Rules
+### Rules
 
 - Domain classes must be testable with plain `new` — no Quarkus context, no mocks.
 - Use case tests mock only outbound ports (`OrderRepository`, `PaymentGateway`); never
@@ -30,7 +29,7 @@ src/test/java/<base-package>/
 - Integration tests that require a running Quarkus instance are suffixed `IT` —
   `PlaceOrderIT` — and run in a separate Maven phase.
 
-#### Coverage Expectations
+### Coverage Expectations
 
 - `domain/` and `application/`: high coverage expected; logic is pure and easily testable.
 - `infrastructure/` and `adapter/`: cover happy path and key failure scenarios;

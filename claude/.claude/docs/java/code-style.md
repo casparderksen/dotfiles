@@ -1,6 +1,6 @@
-### Code Style & Comments
+## Code Style & Comments
 
+- Prefer immutable objects (Record and sealed Classes/Interfaces) and functional programming
 - Write code that is self-explanatory; prefer expressive naming over inline comments.
 - Use comments to explain **why**, never **what** — the code explains what.
-- Javadoc only on public interfaces (ports and use case ports); not on implementations.
-
+- All public interfaces, classes, and methods must have Javadoc

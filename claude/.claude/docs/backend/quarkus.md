@@ -1,6 +1,6 @@
-### Java / Quarkus Standards
+## Java / Quarkus Standards
 
-#### General
+### General
 
 - Prefer interfaces of specifications (Jakarta EE, MicroProfile) over implementations
 - Use CDI (`@ApplicationScoped`, `@RequestScoped`) — never `new`
@@ -11,12 +11,12 @@
 - API: RESTEasy Reactive with OpenAPI spec (include annotations for documentation)
 - Auth: OIDC / Oauth2
 
-#### Database
+### Database
 
 - Flyway for database migrations
 - Database: H2 in memory for testing
 
-#### Maven builds
+### Maven builds
 
 - Portable maven builds
 - plugin and dependency versions in central property list

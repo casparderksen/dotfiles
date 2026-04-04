@@ -1,6 +1,6 @@
-### Git Strategy
+## Git Strategy
 
-#### Branching
+### Branching
 
 - Use trunk-based development; keep branches short-lived (1–2 days maximum).
 - Branch naming: `<type>/<ticket-id>-<short-description>`
@@ -8,7 +8,7 @@
 - Allowed types: `feat`, `fix`, `refactor`, `chore`, `docs`, `test`
 - Never commit directly to `main`; always go through a pull request.
 
-#### Commits
+### Commits
 
 - Follow Conventional Commits: `<type>(<scope>): <description>`
   e.g. `feat(orders): add place order use case`
@@ -18,7 +18,7 @@
 - Write the description in imperative mood — "add", "fix", "remove", not "added" or "fixes".
 - Reference the ticket id in the commit body, not the subject line.
 
-#### Pull Requests
+### Pull Requests
 
 - One PR per feature or fix; keep PRs small and reviewable in under 30 minutes.
 - PR title follows the same Conventional Commits format as commit messages.
@@ -26,7 +26,7 @@
 - Do not merge a PR with unresolved review comments.
 - Squash merge into `main` to keep history linear and readable.
 
-#### Commit Scope Examples
+### Commit Scope Examples
 
 | Scope      | Meaning                         |
 |------------|---------------------------------|
@@ -36,7 +36,7 @@
 | `infra`    | Infrastructure or build changes |
 | `deps`     | Dependency upgrades             |
 
-#### What Not to Commit
+### What Not to Commit
 
 - Never commit secrets, credentials, or environment-specific configuration.
 - Never commit generated files (MapStruct generated sources, compiled assets).

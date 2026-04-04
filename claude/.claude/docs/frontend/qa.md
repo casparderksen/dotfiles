@@ -1,6 +1,6 @@
-### Angular Testing Strategy
+## Angular Testing Strategy
 
-#### Test Types
+### Test Types
 
 | Type        | Tool                    | Scope                                       |
 |-------------|-------------------------|---------------------------------------------|
@@ -8,7 +8,7 @@
 | Integration | Angular Testing Library | Smart components with store wired           |
 | E2E         | Playwright              | Critical user journeys only |
 
-#### Rules
+### Rules
 
 - Dumb components: test inputs, outputs, and rendered output only; no store, no services.
 - Smart components: test via Angular Testing Library with a real store; mock only API services.
@@ -20,12 +20,12 @@
 - E2E tests cover journeys, not components — do not duplicate unit test scenarios in Playwright.
 - One `.spec.ts` file per production file; colocate with the file under test.
 
-#### Naming
+### Naming
 
 - Unit tests: `order-list.component.spec.ts`, `order-facade.service.spec.ts`
 - E2E tests: `place-order.e2e.ts`, `cancel-subscription.e2e.ts` — named after user journeys.
 
-#### Coverage Expectations
+### Coverage Expectations
 
 - `shared/` components and pipes: high coverage; they are pure and reused widely.
 - `data-access/`: cover reducers and selectors thoroughly; effects via integration tests.

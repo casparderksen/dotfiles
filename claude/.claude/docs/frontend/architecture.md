@@ -1,14 +1,4 @@
-### Angular Standards
-
-#### General
-
-- Angular 17+ control flow syntax (`@if`, `@for`, `@switch`) — never `*ngIf`, `*ngFor`
-- Standalone components only — no NgModules unless integrating a legacy library
-- Signals for state management
-- `inject()` function for DI — no constructor injection
-- All public methods must have JSDoc
-
-#### Angular Project Structure
+## Angular Project Structure
 
 Follow a feature-based folder structure aligned with bounded contexts.
 Each feature module is self-contained and maps to a single bounded context.

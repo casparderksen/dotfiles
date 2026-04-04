@@ -1,6 +1,6 @@
-### Flyway — Database Migration Strategy
+## Flyway — Database Migration Strategy
 
-#### Configuration
+### Configuration
 
 - Configure one Flyway instance per datasource using Quarkus named datasource syntax.
 - Name datasources meaningfully — for example `primary`, `secondary` — in `application.properties`.
@@ -17,7 +17,7 @@ quarkus.flyway.secondary.locations=db/secondary/migration
 quarkus.flyway.secondary.migrate-at-start=true
 ```
 
-#### Script Location & Naming
+### Script Location & Naming
 ```
 src/main/resources/
 └── db/
@@ -35,7 +35,7 @@ src/main/resources/
 - Descriptions are lowercase snake_case and describe the change, not the ticket.
 - Repeatable migrations (views, functions) use `R__<description>.sql`.
 
-#### Rules
+### Rules
 
 - Never modify an existing migration script; always add a new versioned one.
 - Never share migration scripts across datasources; each datasource owns its schema independently.
@@ -47,7 +47,7 @@ src/main/resources/
 - Never perform data migrations in the same script as schema migrations; separate them
   into distinct versioned scripts.
 
-#### Mission-Critical Considerations
+### Mission-Critical Considerations
 
 - All destructive changes (`DROP`, `DELETE`, `TRUNCATE`) require a peer review before merge.
 - Column or table renames must be done in three steps: add new → migrate data → drop old;

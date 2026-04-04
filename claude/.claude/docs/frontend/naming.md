@@ -1,6 +1,8 @@
-### Angular Naming Conventions
+## Angular Naming Conventions
 
-#### Files
+PascalCase components, camelCase services, kebab-case file names
+
+### Files
 
 - Components:  `order-list.component.ts`
 - Services:    `order-api.service.ts`, `order-facade.service.ts`
@@ -8,7 +10,7 @@
 - Models:      `order.model.ts` (domain/view model), `order.dto.ts` (API response shape)
 - Routes:      `order.routes.ts`
 
-#### Classes & Interfaces
+### Classes & Interfaces
 
 - Components:  `OrderListComponent`
 - Services:    `OrderApiService`, `OrderFacadeService`

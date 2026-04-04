@@ -1,13 +1,12 @@
-### Architecture
+## Architecture
 
-#### General
+### General
 
-- Prefer immutable objects (Record and sealed Classes/Interfaces) and functional programming
 - Follow Domain-Driven Design (DDD) patterns
 - Structure packages in a layered architecture combining Onion, Clean, and Hexagonal architecture  principles
 - Domain classes and API contracts evolve independently and must not be coupled.
 
-#### Java package structure
+### Java package structure
 
 src/main/java/<base-package>/
 ├── domain/           # Innermost: pure Java, zero framework dependencies
@@ -26,13 +25,35 @@ src/main/java/<base-package>/
     ├── rest/         # JAX-RS resources; map to/from DTOs, call use cases
     └── event/        # Incoming event consumers delegating to use cases
 
-#### Dependency Rule
+### Classes by Layer
+
+| Layer                        | Type                  | Example                                                    |
+|------------------------------|-----------------------|------------------------------------------------------------|
+| `domain/model`               | Entity                | `Order`, `Customer`, `Payment`                             |
+| `domain/model`               | Value Object (record) | `OrderId`, `Money`, `EmailAddress`                         |
+| `domain/model`               | Aggregate Root        | Same as Entity — implied by design                         |
+| `domain/service`             | Domain Service        | `PricingService`, `OrderAllocationService`                 |
+| `domain/event`               | Domain Event          | `OrderPlaced`, `PaymentFailed`, `CustomerActivated`        |
+| `domain/port`                | Outbound Port         | `OrderRepository`, `PaymentGateway`, `NotificationService` |
+| `application/usecase`        | Use Case              | `PlaceOrderUseCase`, `CancelSubscriptionUseCase`           |
+| `application/port`           | Inbound Port          | `PlaceOrderPort`, `CancelSubscriptionPort`                 |
+| `application/usecase`        | Command               | `PlaceOrderCommand`, `CancelSubscriptionCommand`           |
+| `infrastructure/persistence` | Repository Impl       | `PanacheOrderRepository`, `PanacheCustomerRepository`      |
+| `infrastructure/messaging`   | Producer              | `KafkaOrderEventProducer`                                  |
+| `infrastructure/messaging`   | Consumer              | `KafkaPaymentEventConsumer`                                |
+| `infrastructure/rest  `      | REST Client           | `PaymentGatewayClient`, `NotificationClient`               |
+| `adapter/rest`               | Resource              | `OrderResource`, `CustomerResource`                        |
+| `adapter/rest`               | Request DTO           | `CreateOrderRequestDto`, `UpdateCustomerRequestDto`        |
+| `adapter/rest`               | Response DTO          | `OrderResponseDto`, `CustomerSummaryResponseDto`           |
+| `adapter/rest`               | Mapper                | `OrderRestMapper`, `CustomerRestMapper`                    |
+
+### Dependency Rule
 
 - Dependencies point inward only: `adapter → application → domain ← infrastructure`.
 - The `domain` layer must never import from `application`, `infrastructure`, or `adapter`.
 - The `domain` layer must never import Quarkus, Jakarta EE, or any framework annotations.
 
-#### DDD patterns
+### DDD patterns
  
 - **Entities**: Have identity (`id`); encapsulate invariants; never expose setters.
 - **Value Objects**: Immutable; equality by value; use Java `record` types.
@@ -42,13 +63,18 @@ src/main/java/<base-package>/
 - **Repositories**: Interfaces in `domain/port`; return domain objects, not persistence entities.
 - **Application Services / Use Cases**: Coordinate domain objects and ports; handle transactions; emit domain events
 
-#### Ports & Adapters (Hexagonal)
+### Ports & Adapters (Hexagonal)
  
 - **Inbound ports**: Interfaces in `application/port` implemented by use case classes.
 - **Outbound ports**: Interfaces in `domain/port` implemented by infrastructure classes.
 - **Adapters** never contain business logic; they translate and delegate.
 
-#### Quarkus-Specific Rules
+## JPA & Domain Model Strategy
+
+JPA entities **are** the domain model — no mapping between domain and JPA classes. Purity is traded for performance;
+domain integrity is enforced through access discipline.
+
+### Quarkus-Specific Rules
  
 - Quarkus annotations (`@ApplicationScoped`, `@Transactional`, `@Inject`, etc.) are allowed 
   only in `application` and `infrastructure` layers, never in `domain`.
@@ -56,15 +82,13 @@ src/main/java/<base-package>/
 - CDI injection crosses layers only downward (outer injects inner via interface).
 - Use `@Transactional` on Application Service / Use Case methods, not on domain or adapter methods.
 
-#### Mapping Strategy
+### Mapping Strategy
 
-- Use MapStruct for all cross-boundary mapping; never write manual mapping methods
+- Use MapStruct for cross-boundary mapping; never write manual mapping methods
   unless the transformation contains logic — in which case it belongs in a domain
   service or use case, not a mapper.
-- Define one mapper interface per boundary and direction, e.g. `OrderRestMapper`
-  (domain ↔ REST DTO), `OrderPersistenceMapper` (domain ↔ JPA entity).
-- Mappers live in the layer that owns the non-domain type: REST mappers in
-  `adapter/rest`, persistence mappers in `infrastructure/persistence`.
+- Define one mapper interface per boundary and direction, e.g. `OrderRestMapper` (domain ↔ REST DTO)
+- Mappers live in the layer that owns the non-domain type: REST mappers in `adapter/rest`
 - Annotate all mappers with `@Mapper(componentModel = "cdi")` for CDI injection.
 - Mappers must never contain business logic; if a field requires computation or
   a rule, delegate to the domain or use case before mapping.
@@ -74,12 +98,10 @@ src/main/java/<base-package>/
 - Use MapStruct's `nullValueMappingStrategy` and `nullValuePropertyMappingStrategy`
   explicitly on every mapper to avoid inconsistent null handling across the codebase.
 
-#### Anti-patterns to Avoid
+### Anti-patterns to Avoid
  
-- Do not put `@Entity` or JPA annotations on domain model classes.
-- Do not return JPA/Panache entities from repositories; map to domain objects.
 - Do not call repositories directly from REST adapters; always go through a use case.
-- Do not expose domain classes in REST op event interfaces; always map to a dedicated request/response
+- Do not expose domain classes in REST or event interfaces; always map to a dedicated request/response
   DTO in `adapter/rest` or `adapter/event`.
 - Do not share DTOs between layers; map at each boundary.
 - Do not create "god" application services that duplicate domain logic.
