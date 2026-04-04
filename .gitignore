@@ -7,3 +7,5 @@ claude/.claude/plugins/
 claude/.claude/projects/
 claude/.claude/rules/
 claude/.claude/settings.json
+claude/.claude/sessions/
+claude/.claude/shell-snapshots/
