@@ -20,7 +20,7 @@ $ cd ~/.dotfiles
 $ ./bootstrap.sh
 ```
 
-## Frameworks
+## Overview
 
 ### Bootstrap script (`bootstrap.sh`)
 
@@ -37,36 +37,35 @@ Declares all CLI tools, GUI applications, and Mac App Store apps. Highlights:
 - Developer tools: `gh`, `httpie`, `jq`, `yq`, `gnupg`, `ansible`
 - Apps: IntelliJ IDEA, VS Code, OrbStack, DBVisualizer, Proxyman
 
+### macOS defaults (`macos.sh`)
+
+Non-interactive `defaults write` configuration for Finder, Dock, screenshots,
+hot corners, trackpad, and security settings.
+
+### GNU Stow
+
+Symlink manager that maps each tool's subdirectory to `$HOME`, keeping
+configuration source-controlled and organised by package (`git/`, `zsh/`, `ssh/`, `mise/`, …).
+
 ### Mise (`mise/.config/mise/config.toml`)
 
 Polyglot runtime version manager replacing `nvm`, `sdkman`, etc. Manages:
 Node.js, Java (OpenJDK), Maven, Python, Angular CLI, OpenTofu, kubectl, and
 Helm. Respects per-project version files under `~/projects/`.
 
-### GNU Stow
-
-Symlink manager that maps each tool's subdirectory to `$HOME`, keeping
-configuration source-controlled and organised by package (`git/`, `zsh/`,
-`ssh/`, `mise/`, `claude/`, …).
-
-### Shell — Zsh (`.zshrc`, `.alias`)
+### Shell — Zsh (`zsh/.zshrc`, `zsh/.alias`)
 
 - Mise activation, zoxide, fzf, autosuggestions, syntax highlighting
 - Starship prompt showing git, language versions, and container context
 - Aliases for `eza`, `bat`, and common git operations
 
-### Git (`git/.config/git/config`)
+### Git (`git/.config/git`)
 
 - Delta diff pager, histogram diff algorithm, zdiff3 conflict style
 - Fast-forward-only pull, auto-setup remote push, rerere, SSH commit signing
 - Aliases: `undo`, `wip`, `nuke`
 
-### macOS defaults (`macos.sh`)
-
-Non-interactive `defaults write` configuration for Finder, Dock, screenshots,
-hot corners, trackpad, and security settings.
-
-### Eclipse (`install-eclipse.sh`)
+### Eclipse (`scripts/bin/install-eclipse.sh`)
 
 Downloads and configures an Eclipse Modelling Tools installation to
 `~/eclipse/modeling-<release>`. Installs UML2, ATL, Acceleo, Emfatic, and XML/XSL
