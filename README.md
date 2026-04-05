@@ -73,12 +73,7 @@ Downloads and configures an Eclipse Modelling Tools installation to
 on top of the pre-bundled features. Configures JVM memory.
 Safe to re-run.
 
-## Claude Code
+### Claude Code
 
 [Claude Code](https://claude.ai/code) is installed via Homebrew and configured
-The `claude/` stow package provides a version-controlled `~/.claude/` directory containing:
-
-- **`CLAUDE.md`** — global developer identity and stack context (Java/Quarkus, Angular)
-- **`docs/`** — Included coding standards for backend (DDD/hexagonal architecture), frontend and Git
-
-Project repositories can add their own `CLAUDE.md` to extend or narrow the global rules.
+via a separate project.
