@@ -3,11 +3,10 @@
 # eclipse-installer.sh — Eclipse Modelling Environment Setup
 #
 # Downloads and configures an Eclipse Modelling Tools installation with:
-#   - EMF / Ecore  (pre-installed in eclipse-modeling base)
-#   - Xtext / OCL  (pre-installed in eclipse-modeling base)
-#   - UML2
+#   - UML2 (UML metamodel)
 #   - ATL (model transformation)
 #   - Acceleo (model-to-text / code generation)
+#   - Emfactic (textual syntax for Ecore models)
 #
 # Usage:
 #   ./eclipse-installer.sh                           # installs using defaults below
@@ -160,15 +159,28 @@ p2_install \
   "${RELEASE_REPO},https://download.eclipse.org/acceleo/updates/releases/3.7/" \
   "org.eclipse.acceleo.sdk.feature.group"
 
+# Emfatic — textual notation for Ecore metamodels (.emf files)
+p2_install \
+  "Emfatic" \
+  "https://download.eclipse.org/emfatic/update/" \
+  "org.eclipse.emf.emfatic.feature.group"
+
+# Eclipse XML Editors and Tools
+p2_install \
+  "Eclipse XML Editors and Tools" \
+  "${RELEASE_REPO}" \
+  "org.eclipse.wst.xml_ui.feature.feature.group,\
+org.eclipse.wst.xsl.feature.feature.group"
+
 # ── Verify installed features ─────────────────────────────────────────────────
 
 divider
-info "Installed features:"
+info "Installed additional features:"
 "$ECLIPSE_BIN" \
   -application org.eclipse.equinox.p2.director \
   -noSplash \
   -listInstalledRoots \
-  2>/dev/null | grep -E "org.eclipse.(emf|uml|ocl|xtext|m2m.atl|acceleo)" || true
+  2>/dev/null | grep -E "org.eclipse.(uml|m2m.atl|acceleo|emf.emfatic|wst.xml|wst.xsl)" || true
 
 # ── Done ──────────────────────────────────────────────────────────────────────
 
@@ -176,20 +188,17 @@ divider
 echo ""
 echo -e "${BOLD}${GREEN}✔ Eclipse Modelling ${ECLIPSE_RELEASE} ready.${RESET}"
 echo ""
-echo "  Location  : ${ECLIPSE_DIR}"
-echo "  Open app  : open ${ECLIPSE_APP}"
-echo ""
-echo "  Installed:"
-echo "    ✔ EMF / Ecore / Xtext / OCL (base package)"
-echo "    ✔ UML2 SDK"
-echo "    ✔ ATL SDK"
-echo "    ✔ Acceleo SDK"
+echo "  Location    : ${ECLIPSE_DIR}"
+echo "  Open app    : open ${ECLIPSE_APP}"
+echo "  ECLIPSE_BIN : ${ECLIPSE_BIN}"
 echo ""
 echo "  To add more extensions:"
-echo "    ${ECLIPSE_BIN} -application org.eclipse.equinox.p2.director \\"
+echo "    ${ECLIPSE_BIN} \\"
+echo "      -application org.eclipse.equinox.p2.director \\"
 echo "      -noSplash -repository <url> -installIUs <feature.group>"
 echo ""
 echo "  To list available plugins at a repo:"
-echo "    ${ECLIPSE_BIN} -application org.eclipse.equinox.p2.director \\"
+echo "    ${ECLIPSE_BIN} \\"
+echo "      -application org.eclipse.equinox.p2.director \\"
 echo "      -noSplash -repository ${RELEASE_REPO} -list"
 echo ""

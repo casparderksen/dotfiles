@@ -66,6 +66,13 @@ configuration source-controlled and organised by package (`git/`, `zsh/`,
 Non-interactive `defaults write` configuration for Finder, Dock, screenshots,
 hot corners, trackpad, and security settings.
 
+### Eclipse (`install-eclipse.sh`)
+
+Downloads and configures an Eclipse Modelling Tools installation to
+`~/eclipse/modeling-<release>`. Installs UML2, ATL, Acceleo, Emfatic, and XML/XSL
+on top of the pre-bundled features. Configures JVM memory.
+Safe to re-run.
+
 ## Claude Code
 
 [Claude Code](https://claude.ai/code) is installed via Homebrew and configured
