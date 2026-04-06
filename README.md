@@ -76,3 +76,6 @@ Safe to re-run.
 
 [Claude Code](https://claude.ai/code) is installed via Homebrew and configured
 via a separate project.
+
+See [claude-config](https://github.com/casparderksen/claude-config) for configuring
+Claude Code and setting up project-specific development rule.
