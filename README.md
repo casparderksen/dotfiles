@@ -1,6 +1,7 @@
 # Dotfiles to automate Mac setup
 
-Automated, reproducible macOS developer setup targeting full-stack development with Java/Quarkus and Angular.
+Automated, reproducible macOS developer setup targeting full-stack development with Java/Quarkus and Angular. Tweak it to your preferences.
+  
 
 ## Quickstart
 
@@ -34,7 +35,8 @@ Safe to re-run.
 Declares all CLI tools, GUI applications, and Mac App Store apps. Highlights:
 - Modern CLI replacements: `bat`, `eza`, `fd`, `ripgrep`, `delta`, `zoxide`
 - Shell enhancements: `fzf`, `zsh-autosuggestions`, `zsh-syntax-highlighting`, `starship`
-- Developer tools: `gh`, `httpie`, `jq`, `yq`, `gnupg`, `ansible`
+- Developer tools: `gh`, `httpie`, `jq`, `yq`, `gnupg`, `ansible`, `ffmepg`, `pandoc`
+- AI tools: `claude-code` (see [Claude Code](#claude-code)), `ollama`
 - Apps: IntelliJ IDEA, VS Code, OrbStack, DBVisualizer, Proxyman
 
 ### macOS defaults (`macos.sh`)
@@ -59,6 +61,10 @@ Helm. Respects per-project version files under `~/projects/`.
 - Starship prompt showing git, language versions, and container context
 - Aliases for `eza`, `bat`, and common git operations
 
+### Starship prompt (`starship/.config/starship.toml`)
+
+- Context sensitive prompt showing project type and git status, when applicable. See [https://starship.rs](https://starship.rs).
+
 ### Git (`git/.config/git`)
 
 - Delta diff pager, histogram diff algorithm, zdiff3 conflict style
@@ -67,15 +73,17 @@ Helm. Respects per-project version files under `~/projects/`.
 
 ### Eclipse (`scripts/bin/install-eclipse.sh`)
 
-Downloads and configures an Eclipse Modelling Tools installation to
-`~/eclipse/modeling-<release>`. Installs UML2, ATL, Acceleo, Emfatic, and XML/XSL
-on top of the pre-bundled features. Configures JVM memory.
-Safe to re-run.
+Eclipse is not installed by defaults. Run this script for a fully automated installation. The script is safe to re-run.
 
+- Downloads and configures an Eclipse Modelling Tools installation to
+`~/eclipse/modeling-<release>`. 
+- Installs UML2, ATL, Acceleo, Emfatic, and XML/XSL
+on top of the pre-bundled features. 
+- Configures JVM memory.
+  
 ### Claude Code
 
-[Claude Code](https://claude.ai/code) is installed via Homebrew and configured
+- [Claude Code](https://claude.ai/code) (requires license) is installed via Homebrew and configured
 via a separate project.
-
-See [claude-config](https://github.com/casparderksen/claude-config) for configuring
-Claude Code and setting up project-specific development rule.
+- See [claude-config](https://github.com/casparderksen/claude-config) project for configuring
+Claude Code and setting up project-specific development rules.

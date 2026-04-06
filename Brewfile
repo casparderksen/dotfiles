@@ -7,6 +7,7 @@ brew "delta"                            # Syntax-highlighting pager for git and 
 brew "eza"                              # modern ls replacement
 brew "fd"                               # find replacement
 brew "fzf"                              # Command-line fuzzy finder
+brew "ffmpeg"                           # Record, convert and stream audio and video
 brew "gh"                               # GitHub command-line tool
 brew "gnupg"                            # GNU Privacy Guard (OpenPGP)
 brew "httpie"                           # curl replacement for humans
@@ -14,12 +15,14 @@ brew "htop"                             # Improved top (interactive process view
 brew "jq"                               # JSON processing
 brew "mas"                              # Mac App Store CLI
 brew "mise"                             # Polyglot runtime manager
+brew "pandoc"                           # Swiss-army knife of markup format conversion
 brew "ripgrep"                          # Search tool like grep and The Silver Searcher
 brew "starship"                         # Cross-shell prompt for astronauts
 brew "stow"                             # Organize software neatly under a single directory tree
 brew "tlrc"                             # Official tldr client written in Rust
 brew "wget"                             # Internet file retriever
 brew "yq"                               # YAML processing
+brew "ollama"                           # Create, run, and share large language models (LLMs)
 brew "zoxide"                           # smarter cd
 brew "zsh-autosuggestions"              # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-syntax-highlighting"          # Fish shell like syntax highlighting for zsh
@@ -30,7 +33,7 @@ cask "eclipse-installer"                # Install and update your Eclipse Develo
 cask "gimp"                             # Free and open-source image editor
 cask "intellij-idea"                    # Java IDE by JetBrains
 cask "mactex"                           # Full TeX Live distribution with GUI applications
-cask "orbstack"                         # Replacement for Docker Desktop and for running Linux containers
+cask "orbstack"                         # Replacement for Docker Desktop; also runs Linux containers
 cask "proxyman"                         # HTTP debugging proxy
 cask "viscosity"                        # OpenVPN client with AppleScript support
 cask "vlc"                              # Multimedia player
