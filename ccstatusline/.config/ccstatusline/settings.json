@@ -1,0 +1,96 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "1",
+        "type": "model",
+        "color": "cyan",
+        "rawValue": false
+      },
+      {
+        "id": "39aa9852-a5f3-4dd1-8fbc-9f0209528791",
+        "type": "separator"
+      },
+      {
+        "id": "41f6b4c7-a28e-4c0f-84d4-38308509fcc3",
+        "type": "thinking-effort"
+      },
+      {
+        "id": "b8a21e77-cee4-4089-be52-0f2ce50f061f",
+        "type": "separator"
+      },
+      {
+        "id": "9a522d54-2860-4c7b-83a6-4c92c5426388",
+        "type": "context-bar",
+        "color": "brightCyan"
+      }
+    ],
+    [
+      {
+        "id": "d406a24a-e45d-4d09-9b19-eb036893d00a",
+        "type": "git-branch"
+      },
+      {
+        "id": "72550023-916e-4f91-a38e-a2899da9c6e3",
+        "type": "custom-text",
+        "customText": " "
+      },
+      {
+        "id": "9273e552-cdc2-4a1f-8ec3-070c8e605178",
+        "type": "git-changes"
+      },
+      {
+        "id": "1bed3fc9-30d8-48ac-a0d6-2a8ce6af8f57",
+        "type": "separator"
+      },
+      {
+        "id": "ba092242-d20f-49e7-9ff1-98b93297dfd2",
+        "type": "tokens-input"
+      },
+      {
+        "id": "e40fcc7b-d189-41b2-8530-fce9ce88df77",
+        "type": "separator"
+      },
+      {
+        "id": "518155ae-37da-41da-bfc3-a2037d5f07bb",
+        "type": "tokens-output",
+        "color": "blue"
+      },
+      {
+        "id": "d3a58d45-a7f9-4555-88d3-e278b263f3d3",
+        "type": "separator"
+      },
+      {
+        "id": "dc2dc976-dd06-4c9f-b537-383454e33ef8",
+        "type": "reset-timer"
+      },
+      {
+        "id": "05c7a6de-b94a-44ed-8f8c-4851842e64e8",
+        "type": "separator"
+      },
+      {
+        "id": "226fe57e-47bc-4950-bcf8-bf4a47a04d72",
+        "type": "weekly-usage"
+      }
+    ],
+    []
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false
+  }
+}
