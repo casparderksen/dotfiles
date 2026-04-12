@@ -81,9 +81,14 @@ Eclipse is not installed by defaults. Run this script for a fully automated inst
 on top of the pre-bundled features. 
 - Configures JVM memory.
   
-### Claude Code
+### Claude Code (`claude/.claude/settings.json`)
 
-- [Claude Code](https://claude.ai/code) (requires license) is installed via Homebrew and configured
-via a separate project.
-- See [claude-config](https://github.com/casparderksen/claude-config) project for configuring
-Claude Code and setting up project-specific development rules.
+- [Claude Code](https://claude.ai/code) (requires subscription) is installed via Homebrew.
+- Claude Code settings (`.claude/settings.json`) are managed via Stow.
+
+### Claude Code statusline
+
+- [ccstatusline](https://github.com/sirmalloc/ccstatusline) is installed via Mise. 
+- Configuration is managed via Stow (`ccstatusline/.config/ccstatusline/settings.json`). 
+- Run `ccstatusline` to configure the statusline.
+
