@@ -27,6 +27,7 @@ brew "zoxide"                           # smarter cd
 brew "zsh-autosuggestions"              # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-syntax-highlighting"          # Fish shell like syntax highlighting for zsh
 
+cask "claude"                           # Anthropic's official Claude AI desktop app
 cask "claude-code"                      # Terminal-based AI coding assistant (requires license)
 cask "dbvisualizer"                     # Database management and analysis tool
 cask "eclipse-installer"                # Install and update your Eclipse Development Environment
