@@ -93,8 +93,8 @@ fi
 divider
 info "Installing mise tools..."
 
-mise install
 eval "$(mise activate bash)"
+mise install
 
 JVM_LINK=/Library/Java/JavaVirtualMachines/openjdk.jdk
 if [[ ! -L "$JVM_LINK" ]]; then
