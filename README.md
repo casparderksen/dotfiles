@@ -87,11 +87,11 @@ on top of the pre-bundled features.
 
 - [Claude Code](https://claude.ai/code) (requires subscription) is installed via Homebrew.
 - Claude Code settings (`.claude/settings.json`) are managed via Stow.
+- Run `~/bin/install-claude-plugins.sh` to install Claude plugins
 
 ### Claude Code statusline
 
 - [ccstatusline](https://github.com/sirmalloc/ccstatusline) is installed via Mise. 
 - Configuration is managed via Stow (`ccstatusline/.config/ccstatusline/settings.json`). 
 - Run `ccstatusline` to configure the statusline.
-- Run `~/bin/install-claude-plugins.sh` to install Claude plugins
 
