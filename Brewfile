@@ -34,6 +34,7 @@ cask "eclipse-installer"                # Install and update your Eclipse Develo
 cask "gimp"                             # Free and open-source image editor
 cask "intellij-idea"                    # Java IDE by JetBrains
 cask "mactex"                           # Full TeX Live distribution with GUI applications
+cask "obsidian"                         # Knowledge base that works on top of plain text Markdown files
 cask "orbstack"                         # Replacement for Docker Desktop; also runs Linux containers
 cask "proxyman"                         # HTTP debugging proxy
 cask "viscosity"                        # OpenVPN client with AppleScript support
@@ -42,5 +43,6 @@ cask "visual-studio-code"               # VS Code editor
 
 cask "font-jetbrains-mono-nerd-font"    # JetBrainsMono Nerd Font families (JetBrains Mono)
 
-mas "DaisyDisk",    id: 411643860	
-mas "Slack",        id: 803453959
+mas "DaisyDisk",            id: 411643860	
+mas "Obsidian Web Clipper", id: 6720708363
+mas "Slack",                id: 803453959
