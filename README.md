@@ -63,7 +63,8 @@ Helm. Respects per-project version files under `~/projects/`.
 
 ### Starship prompt (`starship/.config/starship.toml`)
 
-- Context sensitive prompt showing project type and git status, when applicable. See [https://starship.rs](https://starship.rs).
+- Context sensitive prompt showing project type and git status, when applicable. 
+  See [https://starship.rs](https://starship.rs).
 
 ### Git (`git/.config/git`)
 
@@ -73,7 +74,8 @@ Helm. Respects per-project version files under `~/projects/`.
 
 ### Eclipse (`scripts/bin/install-eclipse.sh`)
 
-Eclipse is not installed by defaults. Run this script for a fully automated installation. The script is safe to re-run.
+Eclipse is not installed by defaults. Run this script for a fully automated
+installation. The script is safe to re-run.
 
 - Downloads and configures an Eclipse Modelling Tools installation to
 `~/eclipse/modeling-<release>`. 
@@ -91,4 +93,5 @@ on top of the pre-bundled features.
 - [ccstatusline](https://github.com/sirmalloc/ccstatusline) is installed via Mise. 
 - Configuration is managed via Stow (`ccstatusline/.config/ccstatusline/settings.json`). 
 - Run `ccstatusline` to configure the statusline.
+- Run `~/bin/install-claude-plugins.sh` to install Claude plugins
 
