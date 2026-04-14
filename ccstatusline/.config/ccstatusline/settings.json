@@ -3,21 +3,20 @@
   "lines": [
     [
       {
-        "id": "1",
-        "type": "model",
-        "color": "cyan",
-        "rawValue": false
+        "id": "ddb333a6-b033-474b-8148-944822468b0b",
+        "type": "git-branch"
+      },
+      {
+        "id": "45e25df9-0ec7-407e-aa2d-b1293612ddb5",
+        "type": "custom-text",
+        "customText": " "
+      },
+      {
+        "id": "d2c7ee86-98bc-4990-92da-c9f9ef0766ac",
+        "type": "git-changes"
       },
       {
         "id": "39aa9852-a5f3-4dd1-8fbc-9f0209528791",
-        "type": "separator"
-      },
-      {
-        "id": "41f6b4c7-a28e-4c0f-84d4-38308509fcc3",
-        "type": "thinking-effort"
-      },
-      {
-        "id": "b8a21e77-cee4-4089-be52-0f2ce50f061f",
         "type": "separator"
       },
       {
@@ -27,19 +26,6 @@
       }
     ],
     [
-      {
-        "id": "d406a24a-e45d-4d09-9b19-eb036893d00a",
-        "type": "git-branch"
-      },
-      {
-        "id": "72550023-916e-4f91-a38e-a2899da9c6e3",
-        "type": "custom-text",
-        "customText": " "
-      },
-      {
-        "id": "9273e552-cdc2-4a1f-8ec3-070c8e605178",
-        "type": "git-changes"
-      },
       {
         "id": "1bed3fc9-30d8-48ac-a0d6-2a8ce6af8f57",
         "type": "separator"
@@ -74,7 +60,20 @@
         "type": "weekly-usage"
       }
     ],
-    []
+    [
+      {
+        "id": "3955f462-572b-453e-8afb-e8bfa5d3ad4e",
+        "type": "model"
+      },
+      {
+        "id": "82ab65f1-3c89-4254-b8bc-57cef7bdc59a",
+        "type": "separator"
+      },
+      {
+        "id": "3f274283-f1c7-4d78-b5c9-5896e13be0a6",
+        "type": "thinking-effort"
+      }
+    ]
   ],
   "flexMode": "full-minus-40",
   "compactThreshold": 60,
