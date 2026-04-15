@@ -8,6 +8,7 @@ python              = "3.14"
 "npm:@angular/cli"  = "21.2.7"
 "npm:ccstatusline"  = "2.2.7"
 "npm:@fission-ai/openspec" = "latest"
+"uv"                = "0.11.6"
 
 opentofu            = "latest"
 kubectl             = "latest"

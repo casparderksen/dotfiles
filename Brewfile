@@ -4,6 +4,7 @@ brew "ansible"                          # Automate deployment, configuration, an
 brew "bat"                              # cat with syntax highlighting
 brew "dash"                             # API documentation browser and code snippet manager
 brew "delta"                            # Syntax-highlighting pager for git and diff output
+brew "direnv"                           # Load/unload environment variables based on $PWD
 brew "eza"                              # modern ls replacement
 brew "fd"                               # find replacement
 brew "fzf"                              # Command-line fuzzy finder

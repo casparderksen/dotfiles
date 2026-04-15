@@ -24,6 +24,9 @@ source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Starship prompt
 eval "$(starship init zsh)"
 
+# Direnv (always last)
+eval "$(direnv hook zsh)"
+
 # Editor
 EDITOR=vi
 VISUAL=vi
