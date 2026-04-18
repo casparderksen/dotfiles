@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 # =============================================================================
-# eclipse-installer.sh — Eclipse Modelling Environment Setup
+# eclipse-installer.sh - Eclipse Modelling Environment Setup
 #
 # Downloads and configures an Eclipse Modelling Tools installation with:
 #   - UML2 (UML metamodel)
 #   - ATL (model transformation)
 #   - Acceleo (model-to-text / code generation)
 #   - Emfactic (textual syntax for Ecore models)
+#   - Epsilon (languages and tools for model-driven software engineering)
 #
 # Usage:
 #   ./eclipse-installer.sh                           # installs using defaults below
@@ -15,7 +16,7 @@
 
 set -euo pipefail
 
-# ── Configuration — edit these to change version or layout ───────────────────
+# ── Configuration - edit these to change version or layout ───────────────────
 
 ECLIPSE_RELEASE="${ECLIPSE_RELEASE:-2026-03}"       # release train
 ECLIPSE_EDITION="modeling"                          # base package
@@ -48,6 +49,8 @@ ECLIPSE_INI="${ECLIPSE_APP}/Contents/Eclipse/eclipse.ini"
 # Update sites
 RELEASE_REPO="https://download.eclipse.org/releases/${ECLIPSE_RELEASE}"
 UPDATES_REPO="https://download.eclipse.org/eclipse/updates/latest"
+ORBIT_REPO="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/release/4.39.0"
+ORBIT_LEGACY_REPO="https://download.eclipse.org/tools/orbit/simrel/orbit-legacy/release/4.39.0"
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -80,7 +83,7 @@ echo "  JVM args  : -Xms${JVM_XMS} -Xmx${JVM_XMX}"
 
 divider
 if [[ -d "$ECLIPSE_DIR" ]]; then
-  info "Eclipse already installed at ${ECLIPSE_DIR} — skipping download."
+  info "Eclipse already installed at ${ECLIPSE_DIR} - skipping download."
 else
   info "Downloading Eclipse ${ECLIPSE_RELEASE}..."
 
@@ -138,41 +141,52 @@ p2_install() {
     -noSplash \
     -repository "${repos}" \
     -installIUs "${ius}" \
-    2>&1 | grep -E "^(Installing|Operation completed|Error|Cannot)" || true
+    2>&1 || true
 }
 
-# UML2 — UML metamodel support and tooling
+# UML2 - UML metamodel support and tooling
 p2_install \
   "UML2 SDK" \
   "${RELEASE_REPO}" \
   "org.eclipse.uml2.sdk.feature.group"
 
-# ATL — model-to-model transformation
+# ATL - model-to-model transformation
 p2_install \
   "ATL SDK" \
   "${RELEASE_REPO},https://download.eclipse.org/mmt/atl/updates/releases/" \
   "org.eclipse.m2m.atl.sdk.feature.group"
 
-# Acceleo — model-to-text / code generation
+# Acceleo - model-to-text / code generation
 p2_install \
   "Acceleo SDK" \
   "${RELEASE_REPO},https://download.eclipse.org/acceleo/updates/releases/3.7/" \
   "org.eclipse.acceleo.sdk.feature.group"
 
-# Emfatic — textual notation for Ecore metamodels (.emf files)
+# Emfatic - textual notation for Ecore metamodels (.emf files)
 p2_install \
   "Emfatic" \
   "https://download.eclipse.org/emfatic/update/" \
   "org.eclipse.emf.emfatic.feature.group"
 
+# Epsilon - model-driven software engineering (EOL, ETL, EVL, EGL, …)
+p2_install \
+  "Epsilon" \
+  "${RELEASE_REPO},${ORBIT_REPO},https://download.eclipse.org/epsilon/updates/" \
+  "org.eclipse.epsilon.core.feature.feature.group,
+  org.eclipse.epsilon.emf.dt.feature.feature.group,
+  org.eclipse.epsilon.evl.emf.validation.feature.feature.group,
+  org.eclipse.epsilon.flexmi.dt.feature.feature.group,
+  org.eclipse.epsilon.flexmi.feature.feature.group"
+
 # Eclipse XML Editors and Tools
 p2_install \
   "Eclipse XML Editors and Tools" \
   "${RELEASE_REPO}" \
-  "org.eclipse.wst.xml_ui.feature.feature.group,\
-org.eclipse.wst.xsl.feature.feature.group"
+  "org.eclipse.wst.xml_ui.feature.feature.group,org.eclipse.wst.xsl.feature.feature.group"
 
 # ── Verify installed features ─────────────────────────────────────────────────
+
+FEATURES="uml|m2m.atl|acceleo|emf.emfatic|epsilon|wst.xml|wst.xsl"
 
 divider
 info "Installed additional features:"
@@ -180,7 +194,7 @@ info "Installed additional features:"
   -application org.eclipse.equinox.p2.director \
   -noSplash \
   -listInstalledRoots \
-  2>/dev/null | grep -E "org.eclipse.(uml|m2m.atl|acceleo|emf.emfatic|wst.xml|wst.xsl)" || true
+  2>/dev/null | grep -E "org.eclipse.(${FEATURES})" || true
 
 # ── Done ──────────────────────────────────────────────────────────────────────
 
@@ -200,5 +214,5 @@ echo ""
 echo "  To list available plugins at a repo:"
 echo "    ${ECLIPSE_BIN} \\"
 echo "      -application org.eclipse.equinox.p2.director \\"
-echo "      -noSplash -repository ${RELEASE_REPO} -list"
+echo "      -noSplash -repository ${RELEASE_REPO} -list | cut -d= -f1 | sort -u"
 echo ""
