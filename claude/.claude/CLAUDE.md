@@ -16,6 +16,10 @@
 - Never introduce dependencies without explicit approval.
 - Prefer platform-native solutions over third-party libraries where equivalent.
 
+## Hard constraint
+
+- When executing a plan, do not deviate from the design or introduce workarounds without explicit permission.
+
 ## Tech Stack
 
 ### Application

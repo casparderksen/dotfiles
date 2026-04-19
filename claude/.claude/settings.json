@@ -1,40 +1,80 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "cleanupPeriodDays": 7,
-  "defaultMode": "acceptEdits",
   "env": {
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "65536"
   },
+  "alwaysThinkingEnabled": true,
+  "defaultMode": "acceptEdits",
+  "effortLevel": "medium",
   "includeCoAuthoredBy": false,
   "permissions": {
+      "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test)",
+      "Bash(npm run build)",
+      "Bash(mvn:*)",
+      "Bash(git:*)"
+    ],
     "deny": [
-      "Read(.env)",
-      "Bash(rm -rf)",
-      "Bash(curl *)",
-      "Bash(wget *)"
+      "Bash(mvn deploy)",
+      "Bash(git push *)",
+      "Bash(sudo:*)",
+      "Bash(su:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(ssh:*)",
+      "Bash(rm -rf:*)",
+      "Bash(rm -fr:*)",
+
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/credentials.json)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.azure/**)",
+      "Read(~/.config/gh/**)",
+      "Read(~/.docker/config.json)",
+      "Read(~/.kube/**)",
+      "Read(~/.npmrc)",
+      "Read(~/.npm/**)",
+      "Read(~/.pypirc)"
     ]
-  },
-  "sandbox": {
-    "enabled": true,
-    "failIfUnavailable": true,
-    "allowUnsandboxedCommands": false,
-    "filesystem": {
-      "denyRead": [
-        "~/"
-      ],
-      "allowRead": [
-        "."
-      ]
-    },
-    "network": {
-      "allowedDomains": [
-        "api.github.com"
-      ]
-    }
   },
   "statusLine": {
     "type": "command",
     "command": "ccstatusline",
     "padding": 0
+  },
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": false,
+    "skill-creator@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "api.github.com",
+        "repo.maven.apache.org",
+        "repo1.maven.org",
+        "eclipse.dev",
+        "repo.eclipse.org",
+        "*.upstash.io"
+      ]
+    },
+    "filesystem": {
+      "allowWrite": [
+          "/var/folders"
+      ]
+    }
   }
 }

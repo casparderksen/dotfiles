@@ -34,4 +34,5 @@ replay_pid*
 .env
 .env.local
 .claude/.credentials.json
+.claude/settings.local.json
 *.anthropic-key
