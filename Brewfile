@@ -14,6 +14,7 @@ brew "gnupg"                            # GNU Privacy Guard (OpenPGP)
 brew "httpie"                           # curl replacement for humans
 brew "htop"                             # Improved top (interactive process viewer)
 brew "jq"                               # JSON processing
+brew "mactop"                           # Hardware monitor with TUI
 brew "mas"                              # Mac App Store CLI
 brew "mise"                             # Polyglot runtime manager
 brew "pandoc"                           # Swiss-army knife of markup format conversion
