@@ -95,3 +95,7 @@ on top of the pre-bundled features.
 - Configuration is managed via Stow (`ccstatusline/.config/ccstatusline/settings.json`). 
 - Run `ccstatusline` to configure the statusline.
 
+## AI Disclosure
+
+This project uses artificial intelligence tools for research, coding, or documentation. All  final content
+was  reviewed, edited, and validated by the human author before publication.
