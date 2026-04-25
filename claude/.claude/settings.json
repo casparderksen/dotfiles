@@ -73,7 +73,8 @@
     },
     "filesystem": {
       "allowWrite": [
-          "/var/folders"
+          "/var/folders",
+          "~/.m2/repository"
       ]
     }
   }
