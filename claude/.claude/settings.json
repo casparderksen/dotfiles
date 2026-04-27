@@ -1,21 +1,39 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "alwaysThinkingEnabled": true,
+  "showThinkingSummaries": true,
   "cleanupPeriodDays": 7,
+  "includeCoAuthoredBy": false,
+  "tui": "fullscreen",
+
   "env": {
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "65536"
   },
-  "alwaysThinkingEnabled": true,
-  "defaultMode": "acceptEdits",
-  "effortLevel": "medium",
-  "includeCoAuthoredBy": false,
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": false,
+    "skill-creator@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
+  },
   "permissions": {
-      "allow": [
+    "defaultMode": "acceptEdits",
+    "allow": [
       "Bash(npm run lint)",
       "Bash(npm run test)",
       "Bash(npm run build)",
       "Bash(mvn:*)",
-      "Bash(git:*)"
+      "Bash(git:*)",
+
+      "mcp__context7__*",
+      "mcp__github__get_issue",
+      "mcp__github__get_pull_request",
+      "mcp__github__list_issues",
+      "mcp__github__list_pull_requests",
+      "mcp__github__create_issue",
+      "mcp__github__add_issue_comment",
+      "mcp__postgres__query"
     ],
     "deny": [
       "Bash(mvn deploy)",
@@ -42,7 +60,12 @@
       "Read(~/.kube/**)",
       "Read(~/.npmrc)",
       "Read(~/.npm/**)",
-      "Read(~/.pypirc)"
+      "Read(~/.pypirc)",
+
+      "mcp__postgres__drop_*",
+      "mcp__github__delete_*",
+      "mcp__github__push_files",
+      "mcp__postgres__execute"
     ]
   },
   "statusLine": {
@@ -50,22 +73,15 @@
     "command": "ccstatusline",
     "padding": 0
   },
-  "enabledPlugins": {
-    "claude-md-management@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": false,
-    "skill-creator@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "context7@claude-plugins-official": true
-  },
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,
+    "autoAllowBashIfSandboxed": true,
     "allowUnsandboxedCommands": false,
     "network": {
       "allowedDomains": [
         "api.github.com",
         "repo.maven.apache.org",
-        "repo1.maven.org",
         "eclipse.dev",
         "repo.eclipse.org",
         "*.upstash.io"
@@ -73,8 +89,11 @@
     },
     "filesystem": {
       "allowWrite": [
-          "/var/folders",
-          "~/.m2/repository"
+        "/var/folders",
+        "~/.m2/repository"
+      ],
+      "denyWrite": [
+        "./.env"
       ]
     }
   }
