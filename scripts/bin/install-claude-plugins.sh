@@ -32,6 +32,20 @@ fi
 divider
 info "Installing plugins..."
 
+add_claude_marketplace() {
+  local repo="$1"
+  local installed
+  installed=$(claude plugin marketplace list --json | jq -r --arg repo "$repo" \
+    '.[] | select(.repo == $repo) | .repo')
+
+  if [[ -n "$installed" ]]; then
+    info "Claude marketplace already added: ${repo}"
+  else
+    info "adding Claude marketplace: ${repo}..."
+    claude plugin marketplace add "${repo}"
+  fi
+}
+
 install_claude_plugin() {
   local plugin="$1"
   local installed
@@ -51,6 +65,8 @@ install_claude_plugin context7
 install_claude_plugin frontend-design
 install_claude_plugin skill-creator
 install_claude_plugin superpowers
+add_claude_marketplace JuliusBrussee/caveman
+install_claude_plugin caveman
 
 # ── Disable infrequently used plugins ─────────────────────────────────────────
 

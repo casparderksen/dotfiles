@@ -76,7 +76,16 @@
     "frontend-design@claude-plugins-official": false,
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "context7@claude-plugins-official": true
+    "context7@claude-plugins-official": true,
+    "caveman@caveman": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
   },
   "sandbox": {
     "enabled": true,
@@ -85,10 +94,15 @@
     "allowUnsandboxedCommands": false,
     "network": {
       "allowedDomains": [
+        "github.io",
         "api.github.com",
+        "raw.githubusercontent.com",
         "repo.maven.apache.org",
+        "repo1.maven.org",
+        "search.maven.org",
         "eclipse.dev",
         "repo.eclipse.org",
+        "quarkus.io",
         "*.upstash.io"
       ]
     },
@@ -105,6 +119,7 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "medium",
+  "tui": "fullscreen",
   "showThinkingSummaries": true,
   "editorMode": "vim"
 }
