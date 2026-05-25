@@ -33,20 +33,23 @@
       "Bash(rm -rf:*)",
       "Bash(rm -fr:*)",
       "Read(**/.env)",
-      "Read(**/.env.*)",
+      "Read(**/.envrc)",
       "Read(**/credentials.json)",
       "Read(**/*.pem)",
       "Read(**/*.key)",
+      "Read(**/*.p12)",
+      "Read(**/*.pfx)",
       "Read(~/.ssh/**)",
       "Read(~/.gnupg/**)",
       "Read(~/.aws/**)",
       "Read(~/.azure/**)",
       "Read(~/.config/gh/**)",
-      "Read(~/.docker/config.json)",
       "Read(~/.kube/**)",
       "Read(~/.npmrc)",
       "Read(~/.npm/**)",
       "Read(~/.pypirc)",
+      "Bash(sudo:*)",
+      "Bash(su:*)",
       "mcp__postgres__drop_*",
       "mcp__github__delete_*",
       "mcp__github__push_files",
@@ -73,10 +76,10 @@
   },
   "enabledPlugins": {
     "claude-md-management@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": false,
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
     "caveman@caveman": true
   },
   "extraKnownMarketplaces": {
@@ -107,7 +110,12 @@
         "quarkus.io",
         "registry.npmjs.org",
         "*.upstash.io"
-      ]
+      ],
+      "allowUnixSockets": [
+        "/var/run/docker.sock",
+        "/Users/caspar/.orbstack/run/docker.sock"
+      ],
+      "allowLocalBinding": true
     },
     "filesystem": {
       "allowWrite": [
