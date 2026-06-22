@@ -55,8 +55,9 @@
       "mcp__github__push_files",
       "mcp__postgres__execute"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
+  "model": "haiku",
   "hooks": {
     "Notification": [
       {
@@ -75,12 +76,14 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "claude-md-management@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": false,
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "claude-md-management@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "jdtls-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
@@ -127,7 +130,8 @@
       "allowWrite": [
         "/var/folders",
         "/tmp",
-        "~/.m2/repository"
+        "~/.m2/repository",
+        "~/.eclipse"
       ],
       "denyWrite": [
         "./.env"

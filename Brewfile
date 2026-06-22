@@ -14,6 +14,7 @@ brew "gnupg"                            # GNU Privacy Guard (OpenPGP)
 brew "graphviz"                         # Graph visualization software from AT&T and Bell Labs
 brew "httpie"                           # curl replacement for humans
 brew "htop"                             # Improved top (interactive process viewer)
+brew "jdtls"                            # Java language specific implementation of the Language Server Protocol
 brew "jq"                               # JSON processing
 brew "mactop"                           # Hardware monitor with TUI
 brew "mas"                              # Mac App Store CLI

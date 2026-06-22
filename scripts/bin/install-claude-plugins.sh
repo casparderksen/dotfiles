@@ -53,22 +53,25 @@ install_claude_plugin() {
     '.[] | select(.id | startswith($name + "@")) | .id')
 
   if [[ -n "$installed" ]]; then
-    info "Claude plugin already installed: ${plugin}"
-  else
-    info "Installing Claude plugin: ${plugin}..."
-    claude plugin install "${plugin}"
+    info "Updating Claude plugin: ${plugin}..."
+    claude plugin update "${plugin}"
   fi
+
+  info "Installing Claude plugin: ${plugin}..."
+  claude plugin install "${plugin}"
 }
 
 add_claude_marketplace anthropics/skills
 add_claude_marketplace JuliusBrussee/caveman
 
-install_claude_plugin claude-md-management
-install_claude_plugin context7
-install_claude_plugin frontend-design
-install_claude_plugin skill-creator
-install_claude_plugin superpowers
-install_claude_plugin caveman
+install_claude_plugin caveman@caveman
+install_claude_plugin claude-md-management@claude-plugins-official
+install_claude_plugin context7@claude-plugins-official
+install_claude_plugin frontend-design@claude-plugins-official
+install_claude_plugin skill-creator@claude-plugins-official
+install_claude_plugin superpowers@claude-plugins-official
+install_claude_plugin typescript-lsp@claude-plugins-official
+install_claude_plugin jdtls-lsp@claude-plugins-official
 
 # ── Disable infrequently used plugins ─────────────────────────────────────────
 
@@ -99,6 +102,13 @@ divider
 info "Installed plugins:"
 
 claude plugin list | tail +2
+
+# ── List installed MCP servers ────────────────────────────────────────────────
+
+divider
+info "Installed MCP servers:"
+
+claude mcp list | tail +2
 
 # ── Done ──────────────────────────────────────────────────────────────────────
 
