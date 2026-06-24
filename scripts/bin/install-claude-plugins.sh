@@ -126,6 +126,7 @@ install_claude_skill casparderksen/skills adr-writer
 install_claude_skill casparderksen/skills java
 install_claude_skill casparderksen/skills maven
 install_claude_skill casparderksen/skills java-code-review
+install_claude_skill casparderksen/skills refactor-claude-md
 
 # ── List installed plugins ────────────────────────────────────────────────────
 
